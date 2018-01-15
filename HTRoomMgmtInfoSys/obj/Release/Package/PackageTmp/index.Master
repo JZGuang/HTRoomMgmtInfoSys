@@ -1,0 +1,108 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="index.master.cs" Inherits="HTRoomMgmtInfoSys.from.index" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>酒店客房管理信息系统</title>
+    <link rel="stylesheet" href="/layui/css/layui.css" />
+    <link rel="stylesheet" href="/css/button.css" />
+    <script src="/layui/layui.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="layui-layout layui-layout-admin">
+              <div class="layui-header">
+                <div class="layui-logo">如家酒店客房后台管理</div>
+                <!-- 头部区域（可配合layui已有的水平导航） -->
+                <ul class="layui-nav layui-layout-left">
+		            <li class="layui-nav-item"><a href="createNewOrder.aspx">创建新订单</a></li>
+       	            <li class="layui-nav-item">
+       	            <a href="javascript:;">订单提醒</a>
+                    <dl class="layui-nav-child">
+                      <dd><a href="confirmOrder.aspx">待确认订单</a></dd>
+                      <dd><a href="waitStayOrder.aspx">待入住订单</a></dd>
+                      <dd><a href="waitCancelOrder.aspx">待取消订单</a></dd>
+                      <dd><a href="leaveConfirmOrder.aspx">离店确认</a></dd>
+                    </dl>
+                  </li>
+                  <li class="layui-nav-item"><a href="cleanReminder.aspx">客房清理提醒</a></li>
+      
+                </ul>
+                <ul class="layui-nav layui-layout-right">
+                  <li class="layui-nav-item">
+        
+                    <a href="javascript:;">
+                    <asp:Label ID="Lb_user" runat="server" Text="Label">当前用户：</asp:Label>
+                    </a>
+                    <dl class="layui-nav-child">
+                      <dd><a href="findPassWord.aspx">修改密码</a></dd>
+                      <dd><asp:LinkButton ID="Lb_OffLine" runat="server" OnClick="Lb_OffLine_Click">退出</asp:LinkButton></dd>
+                    </dl>
+                </ul>
+              </div>
+  
+              <div class="layui-side layui-bg-black">
+                <div class="layui-side-scroll">
+                  <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+                  <ul class="layui-nav layui-nav-tree"  lay-filter="test">
+                    <li class="layui-nav-item layui-nav-itemed">
+                      <a class="" href="javascript:;">订单管理</a>
+                      <dl class="layui-nav-child">
+                        <dd><a href="selectOrder.aspx">订单查询</a></dd>
+                        <dd><a href="deleteInvalidOrder.aspx">无效订单删除</a></dd>
+                      </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                      <a href="javascript:;">客房管理</a>
+                      <dl class="layui-nav-child">
+                        <dd><a href="selectRoom.aspx">客房信息管理</a></dd>
+                        <dd><a href="addNewRoom.aspx">添加新客房</a></dd>
+                      </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                      <a href="javascript:;">房型管理</a>
+                      <dl class="layui-nav-child">
+			            <dd><a href="selectRoomType.aspx">房型信息管理</a></dd>           
+                        <dd><a href="addNewRoomType.aspx">添加新房型</a></dd>
+                      </dl>
+                    </li>
+                    <li class="layui-nav-item layui-nav-itemed">
+                      <a href="javascript:;">个人中心</a>
+                      <dl class="layui-nav-child">
+			            <dd><a href="changeInfo.aspx">个人信息更新</a></dd>           
+                        <dd><a href="orderStatistics.aspx">值班期订单统计</a></dd>
+                      </dl>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+  
+              <div class="layui-body">
+                <!-- 内容主体区域 -->
+                <div style="padding: 15px;">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+              </div>
+  
+              <div class="layui-footer">
+                <!-- 底部固定区域 -->
+                © HTRoomMgmtInfoSys Power By <a href="https:www.llanc.cn">llanc.cn</a> - 刘兰聪&朱五林&王远东
+              </div>
+            </div>
+        </div>
+    </form>
+
+    <script>
+        //JavaScript代码区域
+        layui.use('element', function(){
+        var element = layui.element;
+        });
+    </script>
+</body>
+</html>
